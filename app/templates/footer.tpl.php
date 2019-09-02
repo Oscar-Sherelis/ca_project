@@ -1,0 +1,1 @@
+<span>&copy; <?php print date('Y') ?>. Oscar Sherelis, all rights reserved.</span>
