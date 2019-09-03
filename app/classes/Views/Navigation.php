@@ -15,7 +15,7 @@ class Navigation extends \Core\View {
 
         if (App::$session->userLoggedIn()) {
             $name = (App::$session->getUser())->getName();
-            $this->addLink('right', '/logout.php', "Logout($name)");
+            $this->addLink('right', '/logout.php', "Logout ($name)");
         } else {
             $this->addLink('right', '/login.php', 'Prisijungti');
             $this->addLink('right', '/register.php', 'Registruotis');            

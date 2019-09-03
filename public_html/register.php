@@ -43,7 +43,7 @@ switch (get_form_action()) {
         </header>
 
         <!-- Main Content -->        
-        <main>
+        <main class="register">
             <section class="wrapper">
                 <div class="block">
                     <?php if ($success): ?>

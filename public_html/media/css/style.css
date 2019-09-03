@@ -1,10 +1,12 @@
 /* Header */
+
 header {
   background-color: #352e53;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
+  box-sizing: border-box;
 }
 
 nav {
@@ -12,7 +14,6 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 800px;
-  min-width: 400px;
 }
 
 nav .link-wrapper {
@@ -36,6 +37,8 @@ a:hover {
 
 /* header end */
 
+/* main photo */
+
 .main-photo {
   background-image: url("images/sport_club.jpg");
   height: 300px;
@@ -43,10 +46,75 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* =============== MAIN =============== */
+
+/* main photo end */
+
+/* register page */
+
+.register {
+  background-image: url("images/register_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.register .wrapper .block {
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+/* register page end */
+
+/* container */
+
+.container {
+  padding: 20px 0; /* only from top and bottom*/
+  display: flex;
+  justify-content: center;
+}
+
+.container-wrapper {
+  max-width: 800px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* services */
+
+.service {
+  width: 25%;
+  box-sizing: border-box;
+  border: 1px solid silver;
+  height: 250px;
+  text-align: center;
+}
+
+.service-image {
+  height: 40%;
+  background-image: url("images/sport.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.service h4 {
+  margin: 10px 0;
+}
+
+.service h4,
+.service p {
+  padding: 5px;
+}
+
+/* container end */
+
+/* Main */
 
 main {
-  margin-top: 50px;
   min-height: calc(100vh - 200px);
 }
 
@@ -62,10 +130,16 @@ main {
 .block {
   border-bottom: 6px dotted #efefef;
   padding: 15px 0;
-  margin-bottom: 15px;
+  width: 70%;
+  margin: 0 auto;
 }
 
-/* =============== TABLE =============== */
+.block h1,
+.block label {
+  color: #352e53;
+}
+
+/* Table */
 
 table {
   padding: 15px;
@@ -77,7 +151,7 @@ table .edit {
   cursor: pointer;
 }
 
-/* =============== MODAL =============== */
+/* Modal */
 
 .modal {
   display: none; /* Hidden by default */
@@ -94,7 +168,7 @@ table .edit {
 
 .modal .wrapper {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and bottom, Also centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
@@ -114,7 +188,7 @@ table .edit {
   cursor: pointer;
 }
 
-/* =============== FORM =============== */
+/* Form */
 
 form .field-wrapper {
   margin-bottom: 1.5rem;
@@ -143,13 +217,46 @@ form.success button:after {
   content: "✔";
 }
 
-/* =============== FOOTER =============== */
+/* Footer */
 
 footer {
-  height: 50px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #352e53;
+  color: #fff;
 }
 
-/* here add media queries */
+/* Media queries */
+
+@media only screen and (max-width: 400px) {
+  nav {
+    padding: 0 18px;
+    width: 400px;
+  }
+  .main-photo {
+    height: 150px;
+  }
+
+  .container-wrapper {
+    display: block;
+  }
+
+  .service {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .service:last-child {
+    margin-bottom: 0;
+  }
+
+  .block {
+    width: 75%;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
