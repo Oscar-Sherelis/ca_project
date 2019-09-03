@@ -1,6 +1,7 @@
 <?php
 
 namespace Core;
+use App\App;
 
 class Session {
 
@@ -33,6 +34,8 @@ class Session {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
 
+            $name = ($this->getUser())->getName();
+            $_SESSION['name'] = $name;
             return true;
         } else {
             $this->user = null;

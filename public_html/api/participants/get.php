@@ -4,7 +4,7 @@ require '../../../bootloader.php';
 
 $response = new \Core\Api\Response();
 
-$model = new App\Participants\Model();
+$model = new App\comments\Model();
 
 $conditions = $_POST ?? [];
 

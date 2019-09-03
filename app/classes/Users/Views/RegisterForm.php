@@ -12,39 +12,43 @@ class RegisterForm extends \Core\Views\Form {
             ],
             'fields' => [
                 'name' => [
-                    'label' => 'Name',
+                    'label' => 'Vardas',
                     'type' => 'text',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
+
+                            'validate_text_lenght' => [
+                                'validate_text_lenght' => 40
+                            ]
                         ]
                     ],
                 ],
                 'surname' => [
-                    'label' => 'Surname',
+                    'label' => 'Pavardė',
                     'type' => 'text',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
+
+                            'validate_text_lenght' => [
+                                'validate_text_lenght' => 40
+                            ]
                         ]
                     ],
                 ],
                 'email' => [
-                    'label' => 'Email',
+                    'label' => 'el. paštas',
                     'type' => 'email',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
                             'validate_mail',
-
-                            'validate_text_lenght' => [
-                                'validate_text_lenght' => 50
-                            ]
                         ]
                     ],
                 ],
                 'password' => [
-                    'label' => 'Password',
+                    'label' => 'Slaptažodis',
                     'type' => 'password',
                     'extra' => [
                         'validators' => [
@@ -52,14 +56,18 @@ class RegisterForm extends \Core\Views\Form {
                         ]
                     ],
                 ],
-                'password_repeat' => [
-                    'label' => 'Password repeat',
-                    'type' => 'password',
+                'phone' => [
+                    'label' => 'Telefono numeris',
+                    'type' => 'number',
                     'extra' => [
-                        'validators' => [
-                            'validate_not_empty'
-                        ]
+                        // 'validators' => [
+                        //     'validate_not_empty' // validate number
+                        // ]
                     ],
+                ],
+                'address' => [
+                    'label' => 'Namų adresas',
+                    'type' => 'text',
                 ],
             ],
             'buttons' => [
@@ -68,10 +76,6 @@ class RegisterForm extends \Core\Views\Form {
                 ],
             ],
             'validators' => [
-                'validate_fields_match' => [
-                    'password',
-                    'password_repeat'
-                ]
             ],
             'callbacks' => [
                 'success' => 'form_success',

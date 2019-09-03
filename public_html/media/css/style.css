@@ -109,7 +109,7 @@ a:hover {
 .service p {
   padding: 5px;
 }
-
+/* services end */
 /* container end */
 
 /* Main */
@@ -135,7 +135,8 @@ main {
 }
 
 .block h1,
-.block label {
+.block label,
+.block p {
   color: #352e53;
 }
 
@@ -151,7 +152,7 @@ table .edit {
   cursor: pointer;
 }
 
-/* Modal */
+/* Modal not for index.php */
 
 .modal {
   display: none; /* Hidden by default */
@@ -189,7 +190,7 @@ table .edit {
 }
 
 /* Form */
-
+/* 
 form .field-wrapper {
   margin-bottom: 1.5rem;
 }
@@ -215,7 +216,7 @@ form.success button {
 form.success button:after {
   font-size: 20px;
   content: "✔";
-}
+} */
 
 /* Footer */
 

@@ -23,6 +23,27 @@ switch (get_form_action()) {
     default:
         $success = false;
 }
+
+/**
+ * If request fails validation
+ * this function is automatically
+ * called
+ * 
+ * @param type $filtered_input
+ * @param type $form
+ */
+function form_fail($filtered_input, $form) {
+    $response = new \Core\Api\Response();
+
+    foreach ($form['fields'] as $field_id => $field) {
+        if (isset($field['error'])) {
+            $response->addError($field['error'], $field_id);
+        }
+    }
+
+    $response->print();
+}
+
 ?>
 <html>
     <head>
@@ -34,7 +55,6 @@ switch (get_form_action()) {
         <link rel="stylesheet" href="media/css/style.css">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!--    <script defer src="media/js/app.js"></script>-->
     </head>
     <body>
         <!-- Header -->        

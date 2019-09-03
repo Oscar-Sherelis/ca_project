@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Participants\Views;
+namespace App\Comments\Views;
 
 class CreateForm extends BaseForm {
 

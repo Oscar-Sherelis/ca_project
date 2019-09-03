@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Participants;
+namespace App\Comments;
 
-class Participant
+class Comment
 {
     private $data = [];
 
@@ -14,9 +14,8 @@ class Participant
             $this->data = [
                 'id' => null,
                 'name' => null,
-                'surname' => null,
-                'email' => null,
-                'city' => null,
+                'time' => null,
+                'commnts' => null,
             ];
         }
     }
@@ -33,9 +32,8 @@ class Participant
             $this->data['id'] = null;
         }
         $this->setName($array['name'] ?? null);
-        $this->setSurname($array['surname'] ?? null);
-        $this->setCity($array['city'] ?? null);
-        $this->setEmail($array['email'] ?? null);
+        $this->setTime($array['time'] ?? null);
+        $this->setComment($array['comment'] ?? null);
     }
 
 
@@ -48,9 +46,8 @@ class Participant
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'surname' => $this->getSurname(),
-            'city' => $this->getCity(),
-            'email' => $this->getEmail()
+            'time' => $this->getTime(),
+            'comment' => $this->getComment(),
         ];
     }
 
@@ -74,9 +71,9 @@ class Participant
      * Sets name
      * @param string $name
      */
-    public function setName(string $name)
+    public function setName()
     {
-        $this->data['name'] = $name;
+        $this->data['name'] = $_SESSION['name'];
     }
 
     /**
@@ -89,53 +86,37 @@ class Participant
     }
 
     /**
-     * Sets data surname
-     * @param string $surname
+     * Sets time
+     * @param string $time
      */
-    public function setSurname(string $surname)
+    public function setTime()
     {
-        $this->data['surname'] = $surname;
+        $today = date("Y-m-d H:i:s");   
+        $this->data['time'] = $today;
     }
 
     /**
      * @return mixed
      */
-    public function getSurname()
+    public function getTime()
     {
-        return $this->data['surname'];
+        return $this->data['time'];
     }
 
     /**
      * Sets data city
      * @param string $city
      */
-    public function setCity(string $city)
+    public function setComment($comment)
     {
-        $this->data['city'] = $city;
+        $this->data['comment'] = $comment;
     }
 
     /**
      * @return mixed
      */
-    public function getCity()
+    public function getComment()
     {
-        return $this->data['city'];
-    }
-
-    /**
-     * Sets data email
-     * @param string $email
-     */
-    public function setEmail(string $email)
-    {
-        $this->data['email'] = $email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->data['email'];
+        return $this->data['comment'];
     }
 }

@@ -11,10 +11,11 @@ class Navigation extends \Core\View {
         parent::__construct($data);
 
         $this->addLink('left', '/', 'Titulinis');
-        $this->addLink('left', '/feedback', 'Apie Mus');
+        $this->addLink('left', '/feedback.php', 'Apie Mus');
 
         if (App::$session->userLoggedIn()) {
             $name = (App::$session->getUser())->getName();
+            
             $this->addLink('right', '/logout.php', "Logout ($name)");
         } else {
             $this->addLink('right', '/login.php', 'Prisijungti');

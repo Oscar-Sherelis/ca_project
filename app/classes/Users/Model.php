@@ -15,15 +15,15 @@ class Model
         App::$db->createTable($this->table_name);
     }
 
-    /** 2uzd turi irasyti $drink i duombaze
-     * @param Drink $drink
+    /** Insert user into database
+     * @param User $user
      */
     public function insert(User $user) {
         return App::$db->insertRow($this->table_name, $user->getData());
     }
 
     /**
-     * 3uzd
+     * Gets data by our conditions
      * @param array $conditions
      * @return User[]
      */
@@ -38,8 +38,8 @@ class Model
     }
 
     /**
-     * 4uzd
-     * @param Drink $drink
+     * Updates database
+     * @param User $user
      * @return bool
      */
     public function update(User $user)
@@ -48,8 +48,8 @@ class Model
     }
 
     /**
-     * 5uzd istrinti table
-     * @param Drink $drink
+     * Delete user
+     * @param User $user
      * @return bool
      */
     public function delete(User $user)
@@ -61,6 +61,9 @@ class Model
         App::$db->truncateTable($this->table_name);
     }
 
+    /**
+     * before ending all tasks saves all changes in database
+     */
     public function __destruct()
     {
         App::$db->save();

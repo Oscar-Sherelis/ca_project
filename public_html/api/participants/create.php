@@ -12,11 +12,10 @@ if (!App::$session->userLoggedIn()) {
 }
 
 // Filter received data
-$form = (new \App\Participants\Views\ApiForm())->getData();
+$form = (new \App\comments\Views\ApiForm())->getData();
 $filtered_input = get_form_input($form);
 validate_form($filtered_input, $form);
 
-//  Object.keys(data) ???
 /**
  * If request passes validation
  * this function is automatically
@@ -26,9 +25,9 @@ validate_form($filtered_input, $form);
  */
 function form_success($filtered_input, $form) {
     $response = new \Core\Api\Response();
-    $participant = new \App\Participants\Participant($filtered_input);
+    $participant = new \App\comments\Comment($filtered_input);
 
-    $model = new \App\Participants\Model();
+    $model = new \App\comments\Model();
     $id = $model->insert($participant);
 
     if ($id) {

@@ -57,9 +57,8 @@ function form_success($filtered_input, &$form) {
 }
 
 /**
- * If request fails validation
- * this function is automatically
- * called
+ * If request fails
+ * this function will be automatically called
  * 
  * @param type $filtered_input
  * @param type $form

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Participants;
+namespace App\Comments;
 
 use \App\App;
 
 class Model
 {
-    private $table_name = 'participants';
+    private $table_name = 'comments';
 
     public function __construct()
     {
@@ -14,11 +14,11 @@ class Model
     }
 
     /**
-     * Irašo $person i duombaze
-     * @param Participant $person
+     * saves comment into database
+     * @param Comments $person
      * @return bool
      */
-    public function insert(Participant $person)
+    public function insert(Comment $person)
     {
         return App::$db->insertRow($this->table_name, $person->getData());
     }
@@ -34,7 +34,7 @@ class Model
         $rows = App::$db->getRowsWhere($this->table_name, $conditions);
         foreach ($rows as $row_id => $row_data) {
             $row_data['id'] = $row_id;
-            $participants[] = new Participant($row_data);
+            $participants[] = new Comment($row_data);
         }
         return $participants;
     }
