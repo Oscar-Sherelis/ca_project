@@ -6,7 +6,7 @@ use App\App;
 
 class Navigation extends \Core\View {
 
-    // @param $data array - data to generate html
+    // @param $data array - data to generate navigation
     public function __construct($data = []) {
         parent::__construct($data);
 

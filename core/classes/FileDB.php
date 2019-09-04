@@ -213,7 +213,6 @@ class FileDB
         if ($this->rowExists($table, $row_id)) {
             return $this->data[$table][$row_id];
         }
-
         return false;
     }
 
@@ -233,7 +232,6 @@ class FileDB
                         $condition_met = false;
                         break;
                     }
-                    // ???
                 } else if ($row[$condition_id] !== $condition) {
                     $condition_met = false;
                     break;

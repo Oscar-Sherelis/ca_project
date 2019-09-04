@@ -2,7 +2,7 @@
 
 require '../../../bootloader.php';
 
-$model = new \App\Comments\Model();
+$model = new \App\comments\Model();
 
 $conditions = $_POST ?? [];
 
@@ -11,9 +11,9 @@ $result = [
     'errors' => []
 ];
 
-$participants = $model->get($conditions);
-if ($participants !== false) {
-    foreach ($participants as $person) {
+$comments = $model->get($conditions);
+if ($comments !== false) {
+    foreach ($comments as $person) {
         $result['comments'][] = $person->getData();
     }
 } else {

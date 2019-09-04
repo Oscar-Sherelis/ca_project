@@ -15,12 +15,12 @@ class Model
 
     /**
      * saves comment into database
-     * @param Comments $person
+     * @param Comments $comment
      * @return bool
      */
-    public function insert(Comment $person)
+    public function insert(Comment $comment)
     {
-        return App::$db->insertRow($this->table_name, $person->getData());
+        return App::$db->insertRow($this->table_name, $comment->getData());
     }
 
     /**
@@ -29,33 +29,13 @@ class Model
      */
     public function get($conditions = [])
     {
-        // user
-        $participants = [];
+        $comments = [];
         $rows = App::$db->getRowsWhere($this->table_name, $conditions);
         foreach ($rows as $row_id => $row_data) {
             $row_data['id'] = $row_id;
-            $participants[] = new Comment($row_data);
+            $comments[] = new Comment($row_data);
         }
-        return $participants;
-    }
-
-    /**
-     * @param Participant $person
-     * @return bool
-     */
-    public function update(Participant $person)
-    {
-        return App::$db->updateRow($this->table_name, $person->getId(), $person->getData());
-    }
-
-    /**
-     * deletes all participants from database
-     * @param Participant $person
-     * @return bool
-     */
-    public function delete(Participant $person)
-    {
-        return App::$db->deleteRow($this->table_name, $person->getId());
+        return $comments;
     }
 
     public function __destruct()

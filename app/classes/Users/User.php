@@ -27,7 +27,7 @@ class User
         $this->setPassword($array['password'] ?? null);
         $this->setPhone($array['phone'] ?? null);
         $this->setAddress($array['address'] ?? null);
-        $this->setComment($array['comment'] ?? null);
+        // $this->setComment($array['comment'] ?? null); comments will be deleted here
     }
 
     public function getData()
@@ -103,7 +103,7 @@ class User
         return $this->data['phone'] ?? null;
     }
 
-    public function setAddress(String $address)
+    public function setAddress($address)
     {
         $this->data['address'] = $address;
     }
@@ -111,15 +111,5 @@ class User
     public function getAddress()
     {
         return $this->data['address'] ?? null;
-    }
-
-    public function setComment($comment)
-    {
-        $this->data['comment'] = $comment;
-    }
-
-    public function getComment()
-    {
-        return $this->data['comment'] ?? null;
     }
 }

@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Users;
-
 use \App\App;
-
 
 class Model
 {
@@ -35,30 +33,6 @@ class Model
             $users[] = new User($row);
         }
         return $users;
-    }
-
-    /**
-     * Updates database
-     * @param User $user
-     * @return bool
-     */
-    public function update(User $user)
-    {
-        return App::$db->updateRow($this->table_name, $user->getId(), $user->getData());
-    }
-
-    /**
-     * Delete user
-     * @param User $user
-     * @return bool
-     */
-    public function delete(User $user)
-    {
-        App::$db->deleteRow($this->table_name, $user->getId());
-    }
-
-    public function deleteAll() {
-        App::$db->truncateTable($this->table_name);
     }
 
     /**

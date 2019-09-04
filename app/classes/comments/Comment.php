@@ -60,7 +60,7 @@ class Comment
     }
 
     /**
-     * @return int|null
+     * @return id
      */
     public function getId()
     {
@@ -71,9 +71,9 @@ class Comment
      * Sets name
      * @param string $name
      */
-    public function setName()
+    public function setName($name)
     {
-        $this->data['name'] = $_SESSION['name'];
+        $this->data['name'] = $name;
     }
 
     /**
@@ -89,14 +89,14 @@ class Comment
      * Sets time
      * @param string $time
      */
-    public function setTime()
+    public function setTime($time)
     {
-        $today = date("Y-m-d H:i:s");   
-        $this->data['time'] = $today;
+        $this->data['time'] = $time;
     }
 
     /**
-     * @return mixed
+     * Return time
+     * @return string
      */
     public function getTime()
     {
@@ -104,8 +104,8 @@ class Comment
     }
 
     /**
-     * Sets data city
-     * @param string $city
+     * Sets comment
+     * @param string $comment
      */
     public function setComment($comment)
     {
@@ -113,7 +113,8 @@ class Comment
     }
 
     /**
-     * @return mixed
+     * Return comment
+     * @return string
      */
     public function getComment()
     {

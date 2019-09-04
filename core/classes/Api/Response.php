@@ -1,5 +1,6 @@
 <?php
 
+// Response to UI
 namespace Core\Api;
 
 class Response {

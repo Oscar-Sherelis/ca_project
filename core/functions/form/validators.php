@@ -2,13 +2,12 @@
 
 /**
  * @param array $filtered_input - $_POST input array
- * @param array $params - array = ['password', 'password_repeat']
+ * @param array $params - array = [password]
  * @param array $form - array to generate form
  */
 function validate_fields_match($filtered_input, &$form, $params) {
 
     $match = true;
-    //var_dump($params); array['password', 'password_repeat'];
     foreach ($params as $field_id) {
         $ref_value = $ref_value ?? $filtered_input[$field_id];
         if ($ref_value != $filtered_input[$field_id]) {
@@ -43,6 +42,14 @@ function validate_not_empty($field_value, &$field) {
 function validate_is_number($field_value, &$field) {
     if (!is_numeric($field_value)) {
         $field['error'] = 'Įveskite skaičių!';
+    } else {
+        return true;
+    }
+}
+
+function validate_not_number($field_value, &$field) {
+    if (is_numeric($field_value)) {
+        $field['error'] = 'Skačiai draužiami!';
     } else {
         return true;
     }

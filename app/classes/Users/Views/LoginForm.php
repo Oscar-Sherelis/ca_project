@@ -31,7 +31,8 @@ class LoginForm extends \Core\Views\Form {
                             'placeholder' => 'Enter password',
                         ],
                         'validators' => [
-                            'validate_not_empty'
+                            'validate_not_empty',
+                            'validate_mail'
                         ]
                     ],
                 ],

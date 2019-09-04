@@ -1,10 +1,10 @@
 <?php
+
 require '../bootloader.php';
 
 // use App\App;
 
 $createForm = new \App\Comments\Views\CreateForm();
-$updateForm = new \App\Comments\Views\UpdateForm();
 $navigation = new \App\Views\Navigation();
 $footer = new \App\Views\Footer();
 
@@ -41,42 +41,18 @@ $footer = new \App\Views\Footer();
                 </table>
         </section>
         </div>
-        <div class="block">
-            <?php print $createForm->render();?>
-        </div>
+        <?php if(isset($_SESSION['email']) && isset($_SESSION['password'])): ?>
+            <div class="block">
+                <?php print $createForm->render();?>
+            </div>
+        <?php else: ?>
+            <a id="leave-comment" href="register.php">Norite parašyti komentarą? Užsiregistruokite</a>
+        <?php endif; ?>
          <!-- Footer -->
         <footer>
             <?php print $footer->render();?>
         </footer>
-        <script>
-                let formData = new FormData(); // chooses input from form
-
-                fetch("api/participants/getComments.php", {
-                    method: "POST",
-                    body: formData
-            })
-                    .then(response => {
-                        response.json().then(data => {
-                            console.log(data);
-                            const tbody = document.querySelector("tbody");
-                            data.comments.forEach(value => {
-                                const tr = document.createElement("tr");
-                                const td1 = document.createElement("td");
-                                const td2 = document.createElement("td");
-                                const td3 = document.createElement("td");
-
-                                td1.append(value.name);
-                                td2.append(value.time);
-                                td3.append(value.comment);
-
-                                tr.append(td1, td2, td3);
-                                tbody.append(tr);
-                            })
-
-                        });
-                    });
-            
-        </script>
+        <script defer src="media/js/comments.js"></script>
         <script defer src="media/js/app.js"></script>
     </body>
 </html>

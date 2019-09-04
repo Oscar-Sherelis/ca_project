@@ -1,11 +1,11 @@
 <?php
 
-// Generates form, what adds users if you are logedin
+// Generates form, what adds comments only if logedin
 namespace App\Comments\Views;
 
 class BaseForm extends \Core\Views\Form {
 
-    // takes Form class constructor
+    // takes Form from class constructor
     public function __construct($data = []) {
         $this->data = [
             'fields' => [

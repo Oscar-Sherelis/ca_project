@@ -73,14 +73,12 @@ function form_fail($filtered_input, $form) {
                         </p>
                     <?php else: ?>
                         <h1>Registruotis:</h1>
-
                         <!-- Register Form -->
                         <?php print $form->render(); ?>
                     <?php endif; ?>
                 </div>
             </section>
         </main>
-
         <!-- Footer -->        
         <footer>
             <?php print $footer->render(); ?>

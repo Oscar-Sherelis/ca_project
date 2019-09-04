@@ -1,7 +1,10 @@
 <?php
 
-// Login validation???
-
+// Login validation
+/**
+ * @param array $filtered_input - user entered data
+ * @param array $form - form array
+ */
 function validate_login($filtered_input, &$form) {
     $login_success = \App\App::$session->login(
             $filtered_input['email'],

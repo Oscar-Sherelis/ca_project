@@ -189,35 +189,18 @@ table .edit {
   cursor: pointer;
 }
 
-/* Form */
-/* 
-form .field-wrapper {
-  margin-bottom: 1.5rem;
+/* google map */
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
 }
 
-form .field-error,
-form .error {
-  color: red;
+#leave-comment {
+  color: blue;
+  text-align: center;
 }
-
-form .message-wrapper {
-  margin-bottom: 2em;
-}
-
-form button {
-  transition: all 0.5s ease;
-}
-
-form.success button {
-  font-size: 0;
-  background: #21006d;
-}
-
-form.success button:after {
-  font-size: 20px;
-  content: "✔";
-} */
-
 /* Footer */
 
 footer {

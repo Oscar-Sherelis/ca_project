@@ -1,6 +1,7 @@
 <?php
 
 use App\App;
+date_default_timezone_set('Europe/Vilnius');
 
 require '../../../bootloader.php';
 
@@ -25,14 +26,19 @@ validate_form($filtered_input, $form);
  */
 function form_success($filtered_input, $form) {
     $response = new \Core\Api\Response();
-    $participant = new \App\comments\Comment($filtered_input);
 
+    $filtered_input['name'] = $_SESSION['name'];
+    $today = date("Y-m-d H:i:s");
+    $filtered_input['time'] = $today;
+
+    $comment = new \App\comments\Comment($filtered_input);
+    var_dump($filtered_input);
     $model = new \App\comments\Model();
-    $id = $model->insert($participant);
+    $id = $model->insert($comment);
 
     if ($id) {
-        $participant->setId($id);
-        $response->setData($participant->getData());
+        $comment->setId($id);
+        $response->setData($comment->getData());
     } else {
         $response->addError('Insert to database failed!');
     }
